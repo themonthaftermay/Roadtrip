@@ -5,7 +5,8 @@ const DefaultVisibleState = {
     StartPage: true,
     ProfilePage: false,
     TripPage: false,
-    ProgressPage: false
+    ProgressPage: false,
+    SummaryPage: false
 }
 
 const VisibleState = (state = DefaultVisibleState, action) => {
@@ -15,8 +16,34 @@ const VisibleState = (state = DefaultVisibleState, action) => {
                 StartPage: false,
                 ProfilePage: false,
                 TripPage: true,
-                ProgressPage: false
+                ProgressPage: false,
+                SummaryPage: false
             }
+        case ACTIONS.VIEW_PROFILE:
+            return {
+                StartPage: false,
+                ProfilePage: true,
+                TripPage: false,
+                ProgressPage: false,
+                SummaryPage: false
+            }
+        case ACTIONS.STOP_TRIP:
+            return {
+                StartPage: false,
+                ProfilePage: false,
+                TripPage: false,
+                ProgressPage: false,
+                SummaryPage: true
+            }
+        case ACTIONS.RESTART:
+            return {
+                StartPage: true,
+                ProfilePage: false,
+                TripPage: false,
+                ProgressPage: false,
+                SummaryPage: false
+            }
+
         default:
             return state;
     }
@@ -27,7 +54,16 @@ const DefaultPauseOrPlayState = {
 }
 
 const PauseOrPlayState = (state = DefaultPauseOrPlayState, action) => {
-    return state;
+    switch (action.type) {
+        case ACTIONS.PAUSE_RESUME_TRIP:
+            return {
+                Pause: !state.Pause
+            }
+        default:
+                return state;
+    }
+    
+
 }
 
 export default combineReducers({

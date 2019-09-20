@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, Modal } from 'react-native';
 import ProfilePage from '../ProfilePage/ProfilePage';
 
-export default function StartPage(props) {
-    
+export default function SummaryPage(props) {
+
     const [profileVisible, setProfileVisible] = useState(false);
 
     const setProfileVisibleHandler = () => {
         setProfileVisible(!profileVisible);
     }
-
+    
     return ( 
-        props.StartPage  ?
+        props.SummaryPage  ?
             <View style={styles.container}>
-                <Text>Start Page</Text>
-                <Button title="Start" onPress={props.StartTrip}/>
+                <Text>Summary Page</Text>
+                <Button title="Reset" onPress={props.Reset} />
                 <Modal
                     animationType="slide"
                     transparent={false}
@@ -24,7 +24,6 @@ export default function StartPage(props) {
                     <Button title="GoBack" onPress={setProfileVisibleHandler}/>
                 </Modal>
                 <Button title="Profile" onPress={setProfileVisibleHandler}/>
-            {/* add search compo */}
             </View>
             :
             null

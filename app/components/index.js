@@ -4,6 +4,7 @@ import StartPage from '../containers/_StartPage';
 import TripPage from '../containers/_TripPage';
 import ProgressPage from '../containers/_ProgreesPage';
 import ProfilePage from '../containers/_ProfilePage';
+import SummaryPage from '../containers/_SummaryPage';
 
 export default function Index() {
   return (
@@ -12,6 +13,7 @@ export default function Index() {
       <TripPage />
       <ProgressPage />
       <ProfilePage />
+      <SummaryPage />
     </View>
   );
 }
