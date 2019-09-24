@@ -1,19 +1,48 @@
-import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Button, Modal } from 'react-native';
+import ProfilePage from '../ProfilePage/ProfilePage';
 
 export default function TripPage(props) {
+
+    const [profileVisible, setProfileVisible] = useState(false);
+    const [progressVisible, setProgressVisible] = useState(false);
+
+    const setProfileVisibleHandler = () => {
+        setProfileVisible(!profileVisible);
+    }
+    const setProgressVisibleHandler = () => {
+        setProgressVisible(!progressVisible)
+    }
+    
     return (
         props.TripPage ?
             <View style={styles.container}>
                 <Text>Trip Page</Text>
                 {props.PauseOrPlayState ? 
-                <Button title="Pause"/>
+                <Button title="Pause" onPress={props.PauseResume} />
                 :
-                <Button title="Play"/>}
-                <Button title="Stop"/>
-                <Button title="Profile"/>
+                <Button title="Resume" onPress={props.PauseResume} />
+                }
+                <Button title="Stop" onPress={props.StopTrip} />
+                <Button title="Profile" onPress={setProfileVisibleHandler} />
                 {/* Same progress button as on ProgressPage */}
-                <Button title="Progress"/>  
+                <Modal
+                    animationType="slide"
+                    transparent={false}
+                    visible={profileVisible}
+                >
+                    <ProfilePage />
+                    <Button title="GoBack" onPress={setProfileVisibleHandler}/>
+                </Modal>
+                <Button title="Progress" onPress={setProgressVisibleHandler}/>
+                <Modal
+                    animationType="slide"
+                    transparent={false}
+                    visible={progressVisible}
+                >
+                    <ProfilePage />
+                    <Button title="GoBack" onPress={setProgressVisibleHandler}/>
+                </Modal>  
             </View> 
             :
             null
