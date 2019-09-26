@@ -1,6 +1,0 @@
-1. Get Node.js
-	Download the LATEST Node.js https://nodejs.org/
-2. Get command line tool
-	npm install expo-cli --global
-3. Start render
-	expo start (or npm start) in the expo init folder
