@@ -28,8 +28,10 @@ export default function StartPage(props) {
                     transparent={false}
                     visible={profileVisible}
                 >
-                    <ProfilePage />
-                    <Button title="GoBack" onPress={setProfileVisibleHandler}/>
+                    <View style={styles.pageSize}>
+                        <ProfilePage />
+                        <Button title="GoBack" onPress={setProfileVisibleHandler}/>
+                    </View>
                 </Modal>
             {/* add search compo */}
             </View>
@@ -54,9 +56,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    profile: {
-
-    },
     profileContainer: {
         borderRadius: 50,
         backgroundColor: '#DDDDDD',
@@ -67,5 +66,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginLeft: '7%',
         marginTop: 35
+    },
+    pageSize: {
+        paddingTop: "10%",
+        flex: 1
     }
 });

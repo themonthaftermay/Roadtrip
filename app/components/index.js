@@ -8,7 +8,7 @@ import SummaryPage from '../containers/_SummaryPage';
 
 export default function Index() {
   return (
-    <View >
+    <View style={styles.notchAdjust}>
       <StartPage />
       <TripPage />
       <ProgressPage />
@@ -19,6 +19,8 @@ export default function Index() {
 }
 
 const styles = StyleSheet.create({
-  
+  notchAdjust: {
+    paddingTop: "10%"
+  }
 });
   

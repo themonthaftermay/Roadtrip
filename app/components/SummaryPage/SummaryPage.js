@@ -20,8 +20,10 @@ export default function SummaryPage(props) {
                     transparent={false}
                     visible={profileVisible}
                 >
-                    <ProfilePage />
-                    <Button title="GoBack" onPress={setProfileVisibleHandler}/>
+                    <View style={styles.pageSize}>
+                        <ProfilePage />
+                        <Button title="GoBack" onPress={setProfileVisibleHandler}/>
+                    </View>
                 </Modal>
                 <Button title="Profile" onPress={setProfileVisibleHandler}/>
             </View>
@@ -31,7 +33,8 @@ export default function SummaryPage(props) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-
-    },
+    pageSize: {
+        paddingTop: "10%",
+        flex: 1
+    }
 });

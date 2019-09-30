@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, Modal } from 'react-native';
 import ProfilePage from '../ProfilePage/ProfilePage';
+import ProgressPage from '../ProgressPage/ProgressPage';
 
 export default function TripPage(props) {
 
@@ -31,8 +32,10 @@ export default function TripPage(props) {
                     transparent={false}
                     visible={profileVisible}
                 >
-                    <ProfilePage />
-                    <Button title="GoBack" onPress={setProfileVisibleHandler}/>
+                    <View style={styles.pageSize}>
+                        <ProfilePage />
+                        <Button title="GoBack" onPress={setProfileVisibleHandler}/>
+                    </View>
                 </Modal>
                 <Button title="Progress" onPress={setProgressVisibleHandler}/>
                 <Modal
@@ -40,8 +43,10 @@ export default function TripPage(props) {
                     transparent={false}
                     visible={progressVisible}
                 >
-                    <ProfilePage />
-                    <Button title="GoBack" onPress={setProgressVisibleHandler}/>
+                    <View style={styles.pageSize}>
+                        <ProgressPage />
+                        <Button title="GoBack" onPress={setProgressVisibleHandler}/>
+                    </View>
                 </Modal>  
             </View> 
             :
@@ -50,7 +55,8 @@ export default function TripPage(props) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-
-    },
+    pageSize: {
+        paddingTop: "10%",
+        flex: 1
+    }
 });
