@@ -8,7 +8,7 @@ import SummaryPage from '../containers/_SummaryPage';
 
 export default function Index() {
   return (
-    <View style={styles.container}>
+    <View >
       <StartPage />
       <TripPage />
       <ProgressPage />
@@ -19,11 +19,6 @@ export default function Index() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  
 });
   
