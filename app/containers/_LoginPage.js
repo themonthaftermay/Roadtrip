@@ -7,7 +7,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return ({makeVis: () => dispatch({type: "ting", personId: id})});
+    return ({ });
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
