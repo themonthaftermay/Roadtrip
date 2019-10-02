@@ -2,7 +2,8 @@ import {combineReducers} from 'redux';
 import * as ACTIONS from './reducerActions';
 
 const DefaultVisibleState = {
-    StartPage: true,
+    LoginPage: true,
+    StartPage: false,
     ProfilePage: false,
     TripPage: false,
     ProgressPage: false,
@@ -13,6 +14,7 @@ const VisibleState = (state = DefaultVisibleState, action) => {
     switch (action.type) {
         case ACTIONS.START_TRIP:
             return {
+                LoginPage: false,
                 StartPage: false,
                 ProfilePage: false,
                 TripPage: true,
@@ -21,6 +23,7 @@ const VisibleState = (state = DefaultVisibleState, action) => {
             }
         case ACTIONS.VIEW_PROFILE:
             return {
+                LoginPage: false,
                 StartPage: false,
                 ProfilePage: true,
                 TripPage: false,
@@ -29,6 +32,7 @@ const VisibleState = (state = DefaultVisibleState, action) => {
             }
         case ACTIONS.STOP_TRIP:
             return {
+                LoginPage: false,
                 StartPage: false,
                 ProfilePage: false,
                 TripPage: false,
@@ -37,6 +41,16 @@ const VisibleState = (state = DefaultVisibleState, action) => {
             }
         case ACTIONS.RESTART:
             return {
+                LoginPage: false,
+                StartPage: true,
+                ProfilePage: false,
+                TripPage: false,
+                ProgressPage: false,
+                SummaryPage: false
+            }
+        case ACTIONS.LOGIN_PAGE:
+            return {
+                LoginPage: false,
                 StartPage: true,
                 ProfilePage: false,
                 TripPage: false,
