@@ -57,7 +57,6 @@ const VisibleState = (state = DefaultVisibleState, action) => {
                 ProgressPage: false,
                 SummaryPage: false
             }
-
         default:
             return state;
     }

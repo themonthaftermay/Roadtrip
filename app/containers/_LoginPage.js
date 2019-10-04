@@ -7,7 +7,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return ({ });
+    return ({authenticated: () => dispatch({type: ACTIONS.LOGIN_PAGE})});
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
