@@ -1,2 +1,4 @@
 # Don't track credential file
 credentials.csv
+node_modules
+
